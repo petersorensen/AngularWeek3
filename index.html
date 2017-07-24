@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"  ng-app='MenuSearchApp'>
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+<body>
+  <div class="container" ng-controller='NarrowItDownController as nidcontroller'>
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+
+    <div class="form-group">
+      <input type="text" placeholder="search term" ng-model="nidcontroller.searchText" class="form-control">
+    </div>
+    <div class="form-group narrow-button">
+      <button class="btn btn-primary" ng-click="nidcontroller.getMatchedMenuItems(nidcontroller.searchText);">Narrow It Down For Me!</button>
+    </div>
+    </br>
+
+    <dishes-list
+      masterlist ="nidcontroller.found"
+      title      ="{{nidcontroller.searchText}}"
+      on-remove  ="nidcontroller.removeItem(index)"></dishes-list>
+  </div>
+
+</body>
+</html>

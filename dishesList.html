@@ -1,0 +1,9 @@
+<h3>Selected Dishes from "{{ mastercntr.myTitle }}" search:</h3>
+<ol>
+  <li ng-repeat="item in mastercntr.disheslist">
+    <strong>{{item.name}}</strong> (short: {{item.short_name}})
+    <button  ng-click="mastercntr.onRemove({index: $index});"> Don't want this one! </button>
+    </br> {{item.description}}
+  </li>
+</ol>
+<div class="emptyMessage" ng-if="mastercntr.disheslist.length <= 0">Nothing found</div>
